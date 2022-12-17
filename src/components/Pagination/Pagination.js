@@ -1,18 +1,20 @@
-import React from "react";
-import classes from './pagination.module.scss';
+import React from 'react';
 
-const Pagination = ({ dataPerPage, totalData, paginate }) => {
+import classNames from 'classnames';
 
+const Pagination = ({ dataPerPage, totalData, paginate, currentPage }) => {
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(totalData / dataPerPage); i++) {
     pageNumbers.push(i);
   }
 
   return (
-    <div className={classes.pagination}>
+    <div className="flex list-none gap-2.5 justify-center">
       {pageNumbers.map((number) => (
-        <li key={number} className="page-item">
-          <button onClick={() => paginate(number)} className="page-link">
+        <li key={number} className={classNames('bg-neutral-300 text-gray-900 font-bold text-center flex rounded-full', {
+          "bg-neutral-500": number === currentPage
+        })}>
+          <button onClick={() => paginate(number)} className="w-8 h-8">
             {number}
           </button>
         </li>

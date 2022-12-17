@@ -1,21 +1,24 @@
 import { Oval } from 'react-loader-spinner';
 
-import classes from './loading.module.scss';
+const Loading = (props) => {
 
-const Loading = () => {
+  const { height, width } = props;
+
   return (
-    <Oval
-      height={20}
-      width={20}
-      color="#4fa94d"
-      wrapperStyle={{}}
-      wrapperClass=""
-      visible={true}
-      ariaLabel="oval-loading"
-      secondaryColor="#4fa94d"
-      strokeWidth={2}
-      strokeWidthSecondary={2}
-    />
+    <div className="flex justify-center item-center py-16">
+      <Oval
+        height={height}
+        width={width}
+        color="#ffcd38"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+        ariaLabel="oval-loading"
+        secondaryColor="#ffcd38"
+        strokeWidth={3}
+        strokeWidthSecondary={3}
+      />
+    </div>
   );
 };
 
