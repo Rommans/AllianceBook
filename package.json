@@ -1,7 +1,8 @@
 {
   "name": "alliancebook",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "homepage": "https://Rommans.github.io/AllianceBook",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -20,7 +21,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prettier": "npx prettier --write ."
+    "prettier": "npx prettier --write .",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +46,7 @@
   },
   "devDependencies": {
     "eslint-config-prettier": "^8.5.0",
+    "gh-pages": "^4.0.0",
     "node-sass": "^7.0.3",
     "prettier": "2.8.1",
     "tailwindcss": "^3.2.4"
