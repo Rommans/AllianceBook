@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/AllianceBook/static/css/main.8c367deb.css",
-    "main.js": "/AllianceBook/static/js/main.04884ba2.js",
+    "main.js": "/AllianceBook/static/js/main.83244f9c.js",
     "static/media/back_button.svg": "/AllianceBook/static/media/back_button.40c1540e5dd007cb8f7efcc3a08848bf.svg",
     "index.html": "/AllianceBook/index.html",
     "main.8c367deb.css.map": "/AllianceBook/static/css/main.8c367deb.css.map",
-    "main.04884ba2.js.map": "/AllianceBook/static/js/main.04884ba2.js.map"
+    "main.83244f9c.js.map": "/AllianceBook/static/js/main.83244f9c.js.map"
   },
   "entrypoints": [
     "static/css/main.8c367deb.css",
-    "static/js/main.04884ba2.js"
+    "static/js/main.83244f9c.js"
   ]
 }
