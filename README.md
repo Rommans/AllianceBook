@@ -17,6 +17,7 @@ Then you can start an App:
 ## Pages
 
 "/AllianceBook" - Home Page
+
 "/characters/:id" - Specific character page
 
 ## Technologies 
