@@ -10,7 +10,7 @@ const Card = (props) => {
     <div className="bg-neutral-300 text-gray-900 p-5 text-center rounded-lg shadow-lg">
       <img src={imgUrl} alt={`${name}`} />
       <Link to={`/characters/${id}`}>
-        <p className={classNames([classes.cardName], "font-bold text-lg inline-block relative")}>{name}</p>
+        <p className={classNames([classes.cardName], "font-bold text-base lg:text-lg inline-block relative")}>{name}</p>
       </Link>
     </div>
   );
