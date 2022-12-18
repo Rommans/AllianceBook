@@ -23,17 +23,34 @@ const Home = () => {
   const [filterParam, setFilterParam] = useState(ALL);
 
   const getData = useCallback(async () => {
-    try {
-      const response = await api.get(`?page=${currentPage}`);
-      const returnedData = await response.data;
-      setData(returnedData.results);
-      setTotalCount(returnedData.count);
-    } catch (error) {
-      console.error('error', error);
-    } finally {
-      setIsLoading(false);
+    if (!input) {
+      try {
+        const response = await api.get(`?page=${currentPage}`);
+        const returnedData = await response.data;
+        setData(returnedData.results);
+        setTotalCount(returnedData.count);
+      } catch (error) {
+        console.error('error', error);
+      } finally {
+        setIsLoading(false);
+      }
     }
-  }, [currentPage]);
+  }, [currentPage, input]);
+
+  const getSearchedData = useCallback(async () => {
+    if (input) {
+      try {
+        const response = await api.get(`?search=${input}&page=${currentPage}`);
+        const returnedData = await response.data;
+        setData(returnedData.results);
+        setTotalCount(returnedData.count);
+      } catch (error) {
+        console.error('error', error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+  }, [currentPage, input]);
 
   //Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -43,15 +60,12 @@ const Home = () => {
     getData();
   }, [getData, currentPage]);
 
-  const searchData = data.filter((el) => {
-    if (input === '') {
-      return el;
-    } else {
-      return el.name.toLowerCase().includes(input);
-    }
-  });
+  useEffect(() => {
+    setIsLoading(true);
+    getSearchedData();
+  }, [getSearchedData, input]);
 
-  const filterData = searchData.filter((el) => {
+  const filterData = data.filter((el) => {
     if (el.gender === filterParam) {
       return el.name.toLowerCase().includes(input);
     } else if (filterParam === ALL) {
@@ -94,7 +108,7 @@ const Home = () => {
           )}
         </>
       )}
-      {data && data.length > 0 && (
+      {filterData && filterData.length > 0 && (
         <Pagination
           dataPerPage={dataPerPage}
           totalData={totalCount}
